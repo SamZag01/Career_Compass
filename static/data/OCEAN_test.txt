@@ -1,0 +1,60 @@
+AGR1	Is compassionate, has a soft heart.	What is your reaction towards needy people?
+AGR2	Is respectful, treats others with respect.	How do you react to criticism from others?
+AGR3	Tends to find fault with others.	Do you judge others to identify their weaknesses?
+AGR4	Feels little sympathy for others.	Do you feel sympathatic for others?
+AGR5	Starts arguments with others.	Do you initiate an argument to make your point clear?
+AGR6	Has a forgiving nature.	Do you have a forgiving nature?
+AGR7	Is helpful and unselfish with others.	Will you help your classmate in exam preparation?	
+AGR8	Is sometimes rude to others.	Can you be rude sometimes?
+AGR9	Is suspicious of others’ intentions.	Do you trust others or get suspicious of others' intentions?
+AGR10	Can be cold and uncaring.	Can you be cold and uncaring?
+AGR11	Is polite, courteous to others.	Are you polite and courteous to others?
+AGR12	Assumes the best about people.	What do you feel about a person being rude or cold? 
+CON1	Tends to be disorganized.	Do you tend to be disorganized?
+CON2	Tends to be lazy.	Do you tend to be lazy?
+CON3	Is dependable, steady.	Are you dependable and steady?
+CON4	Is systematic, likes to keep things in order.	Do you like  systematic and like to keep things in order?
+CON5	Has difficulty getting started on tasks.	Do you have difficulty getting started on tasks?
+CON6	Can be somewhat careless.	Can you be somewhat careless?
+CON7	Keeps things neat and tidy.	Do you keep things neat and tidy?
+CON8	Is efficient, gets things done.	Are you efficient and get things done?
+CON9	Is reliable, can always be counted on.	Are you reliable and can always be counted on?
+CON10	Leaves a mess, doesn’t clean up.	Do you leave a mess and not clean up?
+CON11	Is persistent, works until the task is finished.	Are you persistent and work until the task is finished?
+CON12	Sometimes behaves irresponsibly.	Do you sometimes behave irresponsibly? 
+EXT1	Is outgoing, sociable.	Are you outgoing and sociable?
+EXT2	Has an assertive personality.	Do you have an assertive personality?
+EXT3	Rarely feels excited or eager.	Do you rarely feel excited or eager?
+EXT4	Tends to be quiet.	Do you tend to be quiet?
+EXT5	Is dominant, acts as a leader.	Are you dominant and act as a leader?
+EXT6	Is less active than other people.	Are you less active than other people?
+EXT7	Is sometimes shy, introverted.	Are you sometimes shy or introverted?
+EXT8	Finds it hard to influence people.	Do you find it hard to influence people?
+EXT9	Is full of energy.	Do you feel energatic?
+EXT10	Is talkative.	Are you talkative?
+EXT11	Prefers to have others take charge.	Do you prefer to have others take charge?
+EXT12	Shows a lot of enthusiasm.	Do you show a lot of enthusiasm? 
+NES1	Is relaxed, handles stress well.	Do you stay relaxed and handle stress well?
+NES2	Stays optimistic after experiencing a setback.	Do you stay relaxed and handle stress well?
+NES3	Is moody, has up and down mood swings.	Are you moody and have up and down mood swings?
+NES4	Can be tense.	Can you be tense?
+NES5	Feels secure, comfortable with self.	Do you feel secure and comfortable with yourself?
+NES6	Is emotionally stable, not easily upset.	Are you emotionally stable and not easily upset?
+NES7	Worries a lot.	Do you worry a lot?
+NES8	Often feels sad.	Do you often feel sad?
+NES9	Keeps their emotions under control.	Do you keep your emotions under control?
+NES10	Rarely feels anxious or afraid.	Do you rarely feel anxious or afraid?
+NES11	Tends to feel depressed, blue.	Do you tend to feel depressed or blue?
+NES12	Is temperamental, gets emotional easily.	Are you temperamental and get emotional easily? 
+OPN1	Has few artistic interests.	Do you have few artistic interests?
+OPN2	Is curious about many different things.	Are you curious about many different things?
+OPN3	Is inventive, finds clever ways to do things.	Are you inventive and find clever ways to do things?
+OPN4	Is fascinated by art, music, or literature.	Are you fascinated by art, music, or literature?
+OPN5	Avoids intellectual, philosophical discussions.	Do you avoid intellectual or philosophical discussions?
+OPN6	Has little creativity.	Do you have little creativity?
+OPN7	Values art and beauty.	Do you value art and beauty?
+OPN8	Is complex, a deep thinker.	Are you complex and a deep thinker?
+OPN9	Has difficulty imagining things.	How imaginative you are?
+OPN10	Thinks poetry and plays are boring.	Do you think poetry and plays are boring?
+OPN11	Has little interest in abstract ideas.	Do you have little interest in abstract ideas?	
+OPN12	Is original, comes up with new ideas.	Do you come up with new and original ideas?

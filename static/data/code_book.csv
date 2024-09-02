@@ -1,0 +1,61 @@
+item,trait,facet,direction
+EXT1,extraversion,sociability,forward
+AGR1,agreeableness,compassion,forward
+CON1,conscientiousness,organisation,reversed
+NES1,neg_emotionality,anxiety,reversed
+OPN1,open_minded,aesthatic_sensitivity,reversed
+EXT2,extraversion,assertiveness,forward
+AGR2,agreeableness,respectfulness,forward
+CON2,conscientiousness,productiveness,reversed
+NES2,neg_emotionality,depression,reversed
+OPN2,open_minded,intellectual curiosity,forward
+EXT3,extraversion,energy,reversed
+AGR3,agreeableness,trust,reversed
+CON3,conscientiousness,responsibility,forward
+NES3,neg_emotionality,emo_volitility,forward
+OPN3,open_minded,creative imagination,forward
+EXT4,extraversion,sociability,reversed
+AGR4,agreeableness,compassion,reversed
+CON4,conscientiousness,organisation,forward
+NES4,neg_emotionality,anxiety,forward
+OPN4,open_minded,aesthatic_sensitivity,forward
+EXT5,extraversion,assertiveness,forward
+AGR5,agreeableness,respectfulness,reversed
+CON5,conscientiousness,productiveness,reversed
+NES5,neg_emotionality,depression,reversed
+OPN5,open_minded,intellectual curiosity,reversed
+EXT6,extraversion,energy,reversed
+AGR6,agreeableness,trust,forward
+CON6,conscientiousness,responsibility,reversed
+NES6,neg_emotionality,emo_volitility,reversed
+OPN6,open_minded,creative imagination,reversed
+EXT7,extraversion,sociability,reversed
+AGR7,agreeableness,compassion,forward
+CON7,conscientiousness,organisation,forward
+NES7,neg_emotionality,anxiety,forward
+OPN7,open_minded,aesthatic_sensitivity,forward
+EXT8,extraversion,assertiveness,reversed
+AGR8,agreeableness,respectfulness,reversed
+CON8,conscientiousness,productiveness,forward
+NES8,neg_emotionality,depression,forward
+OPN8,open_minded,intellectual curiosity,forward
+EXT9,extraversion,energy,forward
+AGR9,agreeableness,trust,reversed
+CON9,conscientiousness,responsibility,forward
+NES9,neg_emotionality,emo_volitility,reversed
+OPN9,open_minded,creative imagination,reversed
+EXT10,extraversion,sociability,forward
+AGR10,agreeableness,compassion,reversed
+CON10,conscientiousness,organisation,reversed
+NES10,neg_emotionality,anxiety,reversed
+OPN10,open_minded,aesthatic_sensitivity,reversed
+EXT11,extraversion,assertiveness,reversed
+AGR11,agreeableness,respectfulness,forward
+CON11,conscientiousness,productiveness,forward
+NES11,neg_emotionality,depression,forward
+OPN11,open_minded,intellectual curiosity,reversed
+EXT12,extraversion,energy,forward
+AGR12,agreeableness,trust,forward
+CON12,conscientiousness,responsibility,reversed
+NES12,neg_emotionality,emo_volitility,forward
+OPN12,open_minded,creative imagination,forward

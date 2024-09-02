@@ -1,0 +1,735 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<!-- background: #5d2f94;-->
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Career Compass</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+ <script>
+
+   function scrollToSection(section) {
+    document.getElementById(section).scrollIntoView({behavior: 'smooth'});
+   }
+
+
+const jsonFilePath = 'static/scores.json';
+   async function loadJsonFile() {
+     try {
+     loadCareers();
+     const response = await fetch(jsonFilePath);
+      const scores = await response.json();
+
+      document.getElementById('numerical-aptitude').innerText = scores['Numerical_Aptitude'] + '%';
+      document.getElementById('numerical-aptitude-bar').style.width = scores['Numerical_Aptitude'] ;
+
+      document.getElementById('spatial-aptitude').innerText = scores['Spatial_Aptitude']  + '%';
+      document.getElementById('spatial-aptitude-bar').style.width = scores['Spatial_Aptitude'] ;
+
+      document.getElementById('perceptual-aptitude').innerText = scores['Perceptual_Aptitude'] + '%';
+      document.getElementById('perceptual-aptitude-bar').style.width = scores['Perceptual_Aptitude'] ;
+
+      document.getElementById('abstract-reasoning').innerText = scores['Abstract_Reasoning'] + '%';
+      document.getElementById('abstract-reasoning-bar').style.width = scores['Abstract_Reasoning'] ;
+
+      document.getElementById('verbal-reasoning').innerText = scores['Verbal_Reasoning'] + '%';
+      document.getElementById('verbal-reasoning-bar').style.width = scores['Verbal_Reasoning'] ;
+     }
+     catch (error) {
+      console.error(error);
+     }
+     console.log('Save Click');
+   }
+
+loadJsonFile();
+loadCareers();
+
+   async function loadCareers() {
+     try {
+     const response = await fetch('static/suggested_careers.json');
+     const careers = await response.json();
+  var careers_html = '';
+  for (let i=0; i < 5; i++) {
+  careers_html += '<li data-filter="*" class="filter-active">'+careers[i]+'</li>'+ '&nbsp;&nbsp;&nbsp;&nbsp;';
+  }
+
+  console.log(careers_html);
+  document.getElementById('career-list').innerHTML = careers_html;
+     }
+     catch (error) {
+      console.error(error);
+     }
+     console.log('Save Click');
+   }
+    </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script type="text/javascript" src="static/js/updateUI.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+    window.scrollTo(0, 0);});
+  </script>
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Main CSS File -->
+  <link href="static/css/main.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="static/img/logo.png" alt=""> -->
+        <h1 class="sitename">Career Compass</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li class="dropdown"><a href="#services"><span>OCEAN</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#"><strong>O</strong>peness</a></li>
+              <li><a href="#"><strong>C</strong>onscientiousness</a></li>
+              <li><a href="#"><strong>E</strong>xtraversion</a></li>
+              <li><a href="#"><strong>A</strong>greeableness</a></li>
+              <li><a href="#"><strong>N</strong>euroticism</a></li>
+            </ul>
+          </li>
+          <li><a href="#services">Feedback</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#team">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <div class="d-flex">
+<!--        <a href="#ocean-test" id="quiz-main" class="btn-get-started">Start Test</a>-->
+      <button id='quiz-main' type="button" class="btn-get-started" style="margin-left:20px;" onclick="scrollToSection('ocean-test'); reStart(); " >Start Test</button>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+            <h1>Find Your Direction - Map Your Career </h1>
+            <p>Find a career that align with your personality and complement your inherent talents </p>
+            <div class="d-flex">
+<!--              <a href="#ocean-test" class="btn-get-started">Get Started</a>-->
+              <button id='getStarted' type="button" class="btn-get-started" onclick="scrollToSection('ocean-test'); reStart();" >Get Started</button>
+
+              <a href="https://youtu.be/KCwHV9HCxH0?feature=shared" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img width= "auto" src="static/img/hero-img.png" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+    </section><!-- /Hero Section -->
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients section light-background">
+
+      <div class="container" data-aos="zoom-in">
+
+        <div class="swiper init-swiper">
+
+        </div>
+      </div>
+    </section><!-- /Clients Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Let's dive into the Ocean!</h2>
+      </div><!-- End Section Title -->
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+            <p>
+              OCEAN personality test also called Big Five Personality Test, aims to assess and evaluate different traits of your personality to explore your aptitude.
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-circle"></i> <span><strong>O</strong>cean</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span><strong>C</strong>onscientiousness</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span><strong>E</strong>xtraversion</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span><strong>A</strong>greeableness</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span><strong>N</strong>euroticism</span></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <p> Do you want to learn more about it?</p>
+            <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section><!-- /About Section -->
+
+    <!-- Quiz Section -->
+    <section  id="ocean-test" class="section ocean-test light-background" data-builder="section">
+      <div class="container-fluid">
+        <div class="row gy-4">
+          <div class="w-100 d-flex flex-column justify-content-center order-2 order-lg-1">
+            <div class="content px-xl-5 d-grid" style="grid-template-columns: auto auto;" data-aos="fade-up" data-aos-delay="100">
+            <h3><strong>OCEAN Test</strong><span> in progress..</span></h3>
+              <canvas id="gameCanvas"></canvas> <!--Load js script to show progress here -->
+            </div>
+<!--            <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">-->
+            <div class="faq-container px-xl-5" >
+              <div class="faq-item faq-active">
+                <div class="faq-item">
+                  <div class="textarea-container">
+                  <textarea id="q_id" rows="1" readonly></textarea>
+                    <textarea id="questionText" rows="1" readonly></textarea>
+                <script src="static/js/quiz.js"></script></div>
+                  <div id="controlButton">
+                    <button class="controlButton" data-index="5" onclick="nextImage()"><img id="img5" class="img-ocean" src="static/img/Ocean test/AGR1-5.png"><span> Ofcourse- A 200%</span></button>
+                  <button class="controlButton" data-index="4" onclick="nextImage()"><img id="img4" class="img-ocean" src="static/img/Ocean test/AGR1-4.jpg">Agree</button>
+                  <button class="controlButton" data-index="3" onclick="nextImage()"><img id="img3" class="img-ocean" src="static/img/Ocean test/AGR1-3.png">Neutral</button>
+                  <button class="controlButton" data-index="2" onclick="nextImage()"><img id="img2"  class="img-ocean" src="static/img/Ocean test/AGR1-2.png">Disagree</button>
+                  <button class="controlButton" data-index="1" onclick="nextImage()"><img id="img1" class="img-ocean" src="static/img/Ocean test/AGR1-1.png">Absolutely Not</button>
+                  </div>
+
+                <div class="faq-content" >
+                  <textarea id="explanation" rows="1" readonly></textarea>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+            </div>
+          </div>
+          </div>
+          <div class="col-lg-5 custom-col-lg-6  d-flex flex-column justify-content-center order-2 order-lg-1">
+
+            <script src="static/js/game.js"></script>
+            <button id="btn-submit" class="btn-submit" onclick="scrollIntoView('skills')" >Submit the test</button>
+          <script>
+    const img1 = [
+        'static/img/Ocean test/AGR1-1.png',
+        'static/img/Ocean test/AGR2-1.png',
+        'static/img/Ocean test/AGR3-1.jpg',
+        'static/img/Ocean test/strong_no_10.gif',
+        'static/img/Ocean test/AGR5-1.png',
+        'static/img/Ocean test/AGR6-1.png',
+        'static/img/Ocean test/AGR7-1.png',
+        'static/img/Ocean test/strong_no_1.gif',
+        'static/img/Ocean test/strong_no_2.gif',
+        'static/img/Ocean test/strong_no_4.gif',
+        'static/img/Ocean test/strong_no_5.gif',
+        'static/img/Ocean test/strong_no_10.gif',
+    ];
+    const img2 = [
+        'static/img/Ocean test/AGR1-2.png',
+        'static/img/Ocean test/AGR2-2.png',
+        'static/img/Ocean test/AGR3-2.jpg',
+        'static/img/Ocean test/no_10.gif',
+        'static/img/Ocean test/AGR5-2.png',
+        'static/img/Ocean test/AGR6-2.png',
+        'static/img/Ocean test/AGR7-2.png',
+        'static/img/Ocean test/no_1.gif',
+        'static/img/Ocean test/no_2.gif',
+        'static/img/Ocean test/no-4.gif',
+        'static/img/Ocean test/no_5.gif',
+        'static/img/Ocean test/no_10.gif',
+    ];
+
+    const img3 = [
+        'static/img/Ocean test/AGR1-3.png',
+        'static/img/Ocean test/AGR2-3.png',
+        'static/img/Ocean test/AGR3-3.jpg',
+        'static/img/Ocean test/neutral_10.gif',
+        'static/img/Ocean test/AGR5-3.png',
+        'static/img/Ocean test/AGR6-3.png',
+        'static/img/Ocean test/AGR7-3.png',
+        'static/img/Ocean test/neutral-1.gif',
+        'static/img/Ocean test/neutral_2.gif',
+        'static/img/Ocean test/neutral_4.gif',
+        'static/img/Ocean test/neutral_5.gif',
+        'static/img/Ocean test/neutral_10.gif',
+    ];
+
+    const img4 = [
+        'static/img/Ocean test/AGR1-4.jpg',
+        'static/img/Ocean test/AGR2-4.png',
+        'static/img/Ocean test/AGR3-4.jpg',
+        'static/img/Ocean test/yes_10.gif',
+        'static/img/Ocean test/AGR5-4.png',
+        'static/img/Ocean test/AGR6-4.png',
+        'static/img/Ocean test/AGR7-4.png',
+        'static/img/Ocean test/yes-1.gif',
+        'static/img/Ocean test/yes_2.gif',
+        'static/img/Ocean test/yes_4.gif',
+        'static/img/Ocean test/yes_5.gif',
+        'static/img/Ocean test/yes_10.gif',
+    ];
+
+    const img5 = [
+        'static/img/Ocean test/AGR1-5.png',
+        'static/img/Ocean test/AGR2-5.png',
+        'static/img/Ocean test/AGR3-5.jpg',
+        'static/img/Ocean test/strong_yes_10.gif',
+        'static/img/Ocean test/AGR5-5.png',
+        'static/img/Ocean test/AGR6-5.png',
+        'static/img/Ocean test/AGR7-5.png',
+        'static/img/Ocean test/strong_yes_1.gif',
+        'static/img/Ocean test/strong_yes_2.gif',
+        'static/img/Ocean test/strong_yes_4.gif',
+        'static/img/Ocean test/strong_yes_5.gif',
+        'static/img/Ocean test/strong_yes_10.gif',
+    ];
+
+        let imgIndex = 0;
+function reStart(section) {
+    imgIndex = -1; // Initialize imgIndex
+    scrollToSection("ocean-test"); // Call the scroll function
+    nextImage(); // Call the next image function
+}
+    function nextImage() {
+        // Update the currentIndex, looping back to 0 if it exceeds the length of any image array
+        imgIndex = (imgIndex < img1.length - 1) ? imgIndex + 1 : 7;
+    console.log('Switching to:', img1[imgIndex]); // Log the image path
+
+        // Update the source of each image
+        document.getElementById('img1').src = img1[imgIndex];
+        document.getElementById('img2').src = img2[imgIndex];
+        document.getElementById('img3').src = img3[imgIndex];
+        document.getElementById('img4').src = img4[imgIndex];
+        document.getElementById('img5').src = img5[imgIndex];
+    }
+</script>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Why Us Section -->
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+      <div class="container" >
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center">
+            <img src="static/img/skills.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h3>Your Results</h3>
+            <button type="button" id="btn-result" class="btn-result btn-submit btn-get-started" onclick="loadJsonFile()" >Fetch your Result</button>
+            <div class="skills-content skills-animation">
+              <div class="progress">
+                <span class="skill"><span>Numerical Aptitude</span> <i class="val" id="numerical-aptitude">{{ scores['Numerical_Aptitude']|round }}%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" id="numerical-aptitude-bar" role="progressbar" aria-valuenow="{{ scores['Numerical_Aptitude']|round }}" aria-valuemin="0" aria-valuemax="50"></div>
+                </div>
+              </div><!-- End Skills Item -->
+
+              <div class="progress">
+                <span class="skill"><span>Spatial Aptitude</span> <i class="val" id="spatial-aptitude">{{ scores['Spatial_Aptitude']|round }}%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" id="spatial-aptitude-bar" role="progressbar" aria-valuenow="{{ scores['Spatial_Aptitude']|round }}" aria-valuemin="0" aria-valuemax="50"></div>
+                </div>
+              </div><!-- End Skills Item -->
+
+              <div class="progress">
+                <span class="skill"><span>Perceptual Aptitude</span> <i class="val" id="perceptual-aptitude">{{ scores['Perceptual_Aptitude']|round }}%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" id="perceptual-aptitude-bar" role="progressbar" aria-valuenow="{{ scores['Perceptual_Aptitude']|round }}" aria-valuemin="0" aria-valuemax="50"></div>
+                </div>
+              </div><!-- End Skills Item -->
+
+              <div class="progress">
+                <span class="skill"><span>Abstract Reasoning </span> <i class="val" id="abstract-reasoning">{{ scores['Abstract_Reasoning']|round }}%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" id="abstract-reasoning-bar" role="progressbar" aria-valuenow="{{ scores['Abstract_Reasoning']|round }}" aria-valuemin="0" aria-valuemax="50"></div>
+                </div>
+              </div><!-- End Skills Item -->
+
+              <div class="progress">
+                <span class="skill"><span>Verbal Reasoning</span> <i class="val" id="verbal-reasoning">{{ scores['Verbal_Reasoning']|round }}%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" id="verbal-reasoning-bar" role="progressbar" aria-valuenow="{{ scores['Verbal_Reasoning']|round }}" aria-valuemin="0" aria-valuemax="50"></div>
+                </div>
+              </div><!-- End Skills Item -->
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Skills Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Recommended Career</h2>
+        <p>Based on your interests, preferences and personality; following careers will prove to strengthen your natural abilities and inherent skills.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+<!--          <ul id="career-list" class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">-->
+        <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="static/img/masonry-portfolio/Mechanical.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Mechanical Engineering</h4>
+                <p>Openness and Conscientiousness</p>
+                <a href="static/img/masonry-portfolio/Civil.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="static/img/masonry-portfolio/Civil.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Civil Engineering</h4>
+                <p>Openness and Conscientiousness</p>
+                <a href="static/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="static/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Environmental Scientist</h4>
+                <p>Openness and Conscientiousness</p>
+                <a href="static/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="static/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Fashion Designer</h4>
+                <p>Openness and Extraversion </p>
+                <a href="static/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="static/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Rehabilitation Counselor </h4>
+                <p>Openness and Agreeableness</p>
+                <a href="static/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="static/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Interior Designer</h4>
+                <p>Conscientiousness and Positive Emotional Stability</p>
+                <a href="static/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="static/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Event Photographer</h4>
+                <p>Openness and Extraversion</p>
+                <a href="static/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="static/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Resturant and Hospitality</h4>
+                <p>Conscientiousness and Positive Emotional Stability</p>
+                <a href="static/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="static/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Scientists and Developers</h4>
+                <p>Openness and Conscientiousness</p>
+                <a href="static/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Data Analysis of Big 5 Personality Test</h2>
+        <p>The Ocean Model of Personality, commonly referred to as the Big Five personality traits, is a widely used framework in psychology to describe human personality. It assesses personality across five dimensions. </p>
+      </div><!-- End Section Title -->
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="" class="stretched-link"><strong>N</strong>umerical Aptitude</a></h4>
+              <p>This is often evaluated through assessments or tests, plays a crucial role in career prediction models. This skill indicates an individual's proficiency in understanding and working with numbers, which is essential in various professions such as finance, engineering, data analysis, and scientific research. High numerical aptitude scores may suggest suitability for roles requiring quantitative analysis, problem-solving, and decision-making based on numerical data.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <h4><a href="" class="stretched-link"><strong>S</strong>patial Aptitude</a></h4>
+              <p>It refers to an individual's ability to mentally manipulate shapes, visualize objects in different orientations, and understand spatial relationships. In terms of career prediction, individuals with high spatial aptitude often excel in professions that involve tasks such as architecture, engineering, graphic design, geographic information systems (GIS), and various fields of science and technology. </p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+              <h4><a href="" class="stretched-link"><strong>P</strong>erceptual Aptitude</a></h4>
+              <p>This refers to an individual's ability to accurately perceive and interpret information in their chosen field or occupation. It encompasses skills such as pattern recognition, attention to detail, spatial reasoning, and problem-solving. A high perceptual aptitude often correlates with success in careers that require keen observation, critical thinking, and quick decision-making, such as graphic design, engineering, medicine, or law enforcement.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+              <h4><a href="" class="stretched-link"><strong>A</strong>bstract reasoning </a></h4>
+              <p>It is a cognitive ability that involves the understanding and manipulation of complex ideas and concepts, often without the need for concrete or tangible information. Candidates with strong abstract reasoning abilities tend to excel in roles that require problem-solving, critical thinking, and the ability to analyze and interpret complex data or situations. These skills are highly valued in professions such as engineering, computer science, research, and strategic planning.</p>
+            </div>
+          </div><!-- End Service Item -->
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+              <h4><a href="" class="stretched-link"><strong>V</strong>erbal Reasoning</a></h4>
+<p>It evaluates an individual's ability to comprehend and analyze written information, draw logical conclusions, and solve problems based on textual data. These tests are particularly relevant in fields that require strong communication, critical thinking, and decision-making skills, such as management, law, journalism, and consulting. A high score in verbal reasoning suggests that an individual possesses the aptitude to effectively process and interpret written information, which can be indicative of success in professions that demand strong verbal communication and analytical abilities.</p>
+            </div>
+          </div><!-- End Service Item -->
+            </div><!-- End Service Item -->
+
+
+        </div>
+
+      </div>
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section dark-background">
+
+      <img src="static/img/why-us.png" alt="">
+
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-9 text-center text-xl-start">
+            <h3>Call To Action</h3>
+            <p>Do you agree with the career suggested? Submit your interest </p>
+          </div>
+          <div class="col-xl-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#contact">Call To Action</a>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Call To Action Section -->
+
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Team</h2>
+        <p> </p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="static/img/team/Samia Zaigham.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Samia Zaigham</h4>
+                <span>MSc. Artificial Intelligence and Computer Science</span>
+                <p>Head of Design Technology at an American Curricular School- teaching Computer Science and STEAM to Secondary school students.</p>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="static/img/team/Ahmad-Ibrahim.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Ahmad Ibrahim</h4>
+                <span>Project Supervisor</span>
+                <p>Assistant Professor and Undergraduate Programme Director at the University of Birmingham - Dubai, UAE. His research interests include the Internet of Things, Quality of Service (QoS) prediction, Web services, and Cloud and Fog computing. </p>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+        </div>
+      </div>
+    </section><!-- /Team Section -->
+   <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Feedback</h2>
+        <p>Your thoughts matter to us, and we invite you to share your <strong>feedback</strong>. You are welcome to submit your comments anonymously or include your personal details if you'd like us to get in touch with you.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-5">
+
+            <div class="info-wrap">
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Address</h3>
+                  <p>Abu Dhabi, United Arab Emirates</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-telephone flex-shrink-0"></i>
+                <div>
+                  <h3>Call Us</h3>
+                  <p>+971 800 OCEAN</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email Us</h3>
+                  <p>info@careers.com</p>
+                </div>
+              </div><!-- End Info Item -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d231298.745015154!2d54.947555!3d24.453884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e48c74b0b0b0b%3A0x3e5e48c74b0b0b0b!2sAbu%20Dhabi%2C%20UAE!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <label for="name-field" class="pb-2">Your Name</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Message</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Submit Feedback</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="static/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="static/js/main.js"></script>
+
+</body>
+
+</html>
