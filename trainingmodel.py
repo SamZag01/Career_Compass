@@ -340,6 +340,7 @@ def train_model():
         suggested_careers = career_4
     # Suggest careers based on the predicted cluster
     suggestCareers(suggested_careers)
+    print(suggested_careers)
     print("End of line in training model")
 
 

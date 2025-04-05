@@ -1,8 +1,5 @@
 /**
-* Template Name: Arsha
 * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-* Updated: Jun 29 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
 
@@ -37,7 +34,7 @@
   --nav-dropdown-hover-color: #47b2e4; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 .img-ocean{
-  width: 190px;
+  width: 99.5%;
   height: 200px;
 }
 .custom-col-lg-7 {
@@ -49,7 +46,7 @@
     width: 30%;
   }
 .controlButton{
-width:200px;
+width:19.5%;
 }
 
 .btn-submit {
