@@ -1052,7 +1052,9 @@ section,
 
 /*--------------------------------------------------------------
 # Why Us Section
+
 --------------------------------------------------------------*/
+
 .ocean-test {
   padding: 30px 0;
 }
@@ -1106,11 +1108,14 @@ section,
   opacity: 0;
 }
 
-.ocean-test .faq-container .faq-item .faq-content p {
+.ocean-test .faq-container .faq-item .faq-content p{
   margin-bottom: 0;
   overflow: hidden;
 }
-
+.ocean-test .faq-container .faq-item .faq-content textarea {
+  margin-bottom: 0;
+  overflow: hidden;
+}
 .ocean-test .faq-container .faq-item .faq-icon {
   position: absolute;
   top: 22px;
@@ -1812,6 +1817,10 @@ section,
 }
 
 .faq-2 .faq-container .faq-item .faq-content p {
+  margin-bottom: 0;
+  overflow: hidden;
+}
+.faq-2 .faq-container .faq-item .faq-content textarea{
   margin-bottom: 0;
   overflow: hidden;
 }

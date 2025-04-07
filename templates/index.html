@@ -15,7 +15,6 @@
     document.getElementById(section).scrollIntoView({behavior: 'smooth'});
    }
 
-
 const jsonFilePath = 'static/scores.json';
    async function loadJsonFile() {
      try {
@@ -124,7 +123,6 @@ loadCareers();
       <div class="d-flex">
 <!--        <a href="#ocean-test" id="quiz-main" class="btn-get-started">Start Test</a>-->
       <button id='quiz-main' type="button" class="btn-get-started" style="margin-left:20px;" onclick="scrollToSection('ocean-test'); reStart(); " >Start Test</button>
-
       </div>
     </div>
   </header>
@@ -165,7 +163,6 @@ loadCareers();
 
     <!-- About Section -->
     <section id="about" class="about section">
-
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Let's dive into the Ocean!</h2>
@@ -195,15 +192,16 @@ loadCareers();
 
     <!-- Quiz Section -->
     <section  id="ocean-test" class="section ocean-test light-background" data-builder="section">
+
       <div class="container-fluid">
         <div class="row gy-4">
           <div class="w-100 d-flex flex-column justify-content-center order-2 order-lg-1">
-            <h3><strong>OCEAN Test</strong><span> in progress..</span></h3>
             <div class="content px-xl-5 d-grid" style="grid-template-columns: auto auto;" data-aos="fade-up" data-aos-delay="100">
+                <h4><strong>OCEAN Test</strong><span> in progress..</span></h4>
               <canvas id="gameCanvas"></canvas> <!--Load js script to show progress here -->
             </div>
 <!--            <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">-->
-            <div class="faq-container px-xl-5" >
+            <div class="faq-container px-xl-6" >
               <div class="faq-item faq-active">
                 <div class="faq-item">
                   <div class="textarea-container">
@@ -219,8 +217,8 @@ loadCareers();
                   </div>
 
                 <div class="faq-content" >
-                  <textarea id="explanation" rows="1" readonly></textarea>
-                </div>
+                  <p id="explanation" rows="1" readonly></p>
+                  </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
             </div>
